@@ -106,10 +106,8 @@ for h in users_list:
                 date_task = line[-17:-7]
                 time_task = line[-6:-1]
             txt_file = os.path.dirname(__file__) + f'/tasks/{num}_{h["username"]}_{date_task}T{time_task[:2]}.{time_task[3:]}.txt'
-            date_today = str(date.today())
-            if date_task != date_today:
-                os.rename(txt_file_actual, txt_file)
-                write_file()
+            os.rename(txt_file_actual, txt_file)
+            write_file()
         else:
             write_file()
     except OSError:
